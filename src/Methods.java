@@ -1,9 +1,9 @@
 public class Methods {
-    public static NhanVien AddPartTime(String codeNV, String Name, int Phone, String Email, int Time) {
+    public static NhanVien addPartTime(String codeNV, String Name, int Phone, String Email, int Time) {
         return new NhanVienPartTime(codeNV, Name, Phone, Email, Time);
     }
 
-    public static NhanVien AddFullTime(String codeNV, String Name, int Phone, String Email, int Bonus, int Fine, int Salary) {
+    public static NhanVien addFullTime(String codeNV, String Name, int Phone, String Email, int Bonus, int Fine, int Salary) {
         return new NhanVienFullTime(codeNV, Name,Phone, Email, Bonus, Fine, Salary);
     }
 
@@ -29,12 +29,13 @@ public class Methods {
         return AverageSalary;
     }
 
-    public static String ListLessThanAvarageSalary(NhanVien[] newNhanVien) {
+    public static String listLessThanAvarageSalary(NhanVien[] newNhanVien) {
         String List = "";
         for (int i = 0; i < newNhanVien.length; i++) {
             if (newNhanVien[i] instanceof NhanVienFullTime) {
                 if (((NhanVienFullTime) newNhanVien[i]).luongFullTime() < getAverageSalary(newNhanVien)) {
                     List += ((NhanVienFullTime) newNhanVien[i]).toString();
+                    System.out.println(newNhanVien);
                 }
             }
         }
@@ -51,11 +52,11 @@ public class Methods {
         return sumSalaryPartTime;
     }
 
-    public static NhanVien[] SortNvBySalary(NhanVien[] nhanVien) {
+    public static NhanVien[] sortNvBySalary(NhanVien[] nhanVien) {
         for (int i = 0; i < nhanVien.length; i++) {
             for (int j = 1; j < nhanVien.length - i; j++) {
                 if(nhanVien[j] instanceof NhanVienFullTime){
-                    if(((NhanVienFullTime) nhanVien[j-1]).luongFulltime()>((NhanVienFullTime) nhanVien[j]).luongFulltime()){
+                    if(((NhanVienFullTime) nhanVien[j-1]).luongFullTime()>((NhanVienFullTime) nhanVien[j]).luongFullTime()){
                         NhanVienFullTime temp = (NhanVienFullTime) nhanVien[j-1];
                         nhanVien[j-1]= (NhanVienFullTime) nhanVien[j];
                         nhanVien[j] = temp;
@@ -65,7 +66,7 @@ public class Methods {
         }
         return nhanVien;
     }
-    public static String ArrayNvSort(NhanVien[] nhanVien) {
+    public static String arrayNvSort(NhanVien[] nhanVien) {
         String List = "";
         for (int i = 0; i < nhanVien.length; i++) {
             List += nhanVien[i].toString();

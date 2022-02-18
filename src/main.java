@@ -10,7 +10,7 @@ public class main {
         nhanVien[2] = new NhanVienFullTime("C2222", "Phương", 023232232, "XXX.COM", 323, 35, 2323231);
         nhanVien[3] = new NhanVienPartTime("C3333", "Mai", 223232323, "phimmoi.com", 50);
         nhanVien[4] = new NhanVienPartTime("C4444", "KIN", 42343434, "ABC.COM", 232);
-        System.out.println(Methods.ArrayNvSort(Methods.SortNvBySalary(nhanVien)));
+        System.out.println(Methods.arrayNvSort(Methods.sortNvBySalary(nhanVien)));
         Scanner scanner = new Scanner(System.in);
         int number = 1;
         while (number != 0) {
@@ -38,7 +38,7 @@ public class main {
                     System.out.println("Enter the realtime");
                     int Time = scanner.nextInt();
                     Methods.addNhanVien(newNhanVien, nhanVien);
-                    newNhanVien[newNhanVien.length - 1] = Methods.AddPartTime(codeNV, Name, Phone, Email, Time);
+                    newNhanVien[newNhanVien.length - 1] = Methods.addPartTime(codeNV, Name, Phone, Email, Time);
                     break;
                 case 2:
                     System.out.println("Enter code for new staff:");
@@ -57,16 +57,16 @@ public class main {
                     System.out.println("Enter the salary:");
                     int Salary = scanner.nextInt();
                     Methods.addNhanVien(newNhanVien, nhanVien);
-                    newNhanVien[newNhanVien.length - 1] = Methods.AddFullTime(codeNV1, Name1, Phone1, Email1, Bonus, Fine, Salary);
+                    newNhanVien[newNhanVien.length - 1] = Methods.addFullTime(codeNV1, Name1, Phone1, Email1, Bonus, Fine, Salary);
                     break;
                 case 3:
-                    System.out.println("List of full-time employees whose salary is lower than the average salary of" + Methods.ListLessThanAvarageSalary(newNhanVien));
+                    System.out.println("List of full-time employees whose salary is lower than the average salary of" + Methods.listLessThanAvarageSalary(newNhanVien));
                     break;
                 case 4:
                     System.out.println("Salary for Part-Time employees:" + Methods.sumSalaryPartTime(newNhanVien));
                     break;
                 case 5:
-                    System.out.println("Sort Full-Time salary:" + Methods.ArrayNvSort(Methods.SortNvBySalary(nhanVien)));
+                    System.out.println("Sort Full-Time salary:" + Methods.arrayNvSort(Methods.sortNvBySalary(nhanVien)));
                     break;
                 case 0:
                     System.exit(0);
